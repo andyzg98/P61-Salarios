@@ -136,6 +136,7 @@ void Salarios::on_actionAcerca_de_triggered()
 
 void Salarios::on_actionabrir_triggered()
 {
+    //outcalculos varible de interfaz text plano
     QString archivos= ui->outCalculos->toPlainText();
 
     if(archivos.isEmpty()){
