@@ -79,7 +79,6 @@ void Salarios::calcular()
 
 }
 
-
 void Salarios::on_actionCalcular_triggered()
 {
     calcular();
@@ -101,7 +100,7 @@ void Salarios::on_actionGuardar_triggered()
                                                    "Archivos de texto (*.txt)");
     // Crear un objeto File
     QFile archivo(nombreArchivo);
-    // Tartar de abrir para escritura
+    // Tratar de abrir para escritura
     if(archivo.open(QFile::WriteOnly | QFile::Truncate)){
         // cRear un objeto 'stream' de texto
         QTextStream salida(&archivo);
@@ -133,5 +132,57 @@ void Salarios::on_actionAcerca_de_triggered()
     // Luego de cerrar la ventana, se acceden a los datos de la misma
     qDebug() << dialog->valor();
 
+}
+
+void Salarios::on_actionabrir_triggered()
+{
+    QString archivos= ui->outCalculos->toPlainText();
+
+    if(archivos.isEmpty()){
+        QString texto="";
+        QFile file (QFileDialog::getOpenFileName(this,
+                                                 "abrir file ",
+                                                 QDir::home().absolutePath() + "",
+                                                 "Archivos de texto (*.txt)"));
+     if(!file.open (QIODevice::ReadOnly | QIODevice::Text)){
+         QMessageBox::warning(this,"abrir file",
+                              "no se puede abrir archivo");
+
+        }else {
+         QTextStream entrada(&file);
+         while (!entrada.atEnd()) {
+             texto += entrada.readLine()+"\n";
+         }
+         ui->outCalculos->appendPlainText(texto);
+         file.close();
+     }
+
+    }else{
+        //limpiar Widgets
+        limpiar();
+        //limpiar texto calculos
+        ui->outCalculos->clear();
+
+        QString texto="";
+        QFile file (QFileDialog::getOpenFileName(this,
+                                                 "sellecione archivo",
+                                                 QDir::home().absolutePath()+"",
+                                                 "archivo de texto(*.txt)"));
+
+       if(!file.open( QIODevice::ReadOnly | QIODevice::Text )){
+           QMessageBox::warning(this,
+                                "abrir archivo",
+                                "no se puede abrir el archivo");
+       }else{
+           QTextStream entrada(&file);
+
+           while(!entrada.atEnd()){
+               texto += entrada.readLine()+'\n';
+           }
+           ui->outCalculos->appendPlainText(texto);
+           file.close();
+       }
+
+    }
 }
 

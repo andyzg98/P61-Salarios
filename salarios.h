@@ -37,10 +37,14 @@ private slots:
 
     void on_actionAcerca_de_triggered();
 
+    void on_actionabrir_triggered();
+
 private:
     Ui::Salarios *ui;
     Controlador *m_contolador;
     void limpiar();
     void calcular();
+
+
 };
 #endif // SALARIOS_H

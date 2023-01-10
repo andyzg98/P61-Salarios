@@ -1,0 +1,13 @@
+Nombre: b
+Jornada: Matutina
+Horas: 9
+Salario Bruto: $46.35
+Descuento: $4.40325
+Salario Neto: $41.9468
+
+Nombre: andy
+Jornada: Matutina
+Horas: 12
+Salario Bruto: $61.8
+Descuento: $5.871
+Salario Neto: $55.929

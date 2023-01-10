@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>recursos/finanzas.png</file>
+        <file>recursos/mesa-de-ayuda.png</file>
+        <file>recursos/abrir.png</file>
+        <file>recursos/agregar_archivo.png</file>
+        <file>recursos/calcular.png</file>
+        <file>recursos/salida.png</file>
+        <file>recursos/salvar.png</file>
+    </qresource>
+</RCC>
